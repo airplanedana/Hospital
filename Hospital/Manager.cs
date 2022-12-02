@@ -8,8 +8,12 @@ namespace Hospital
 {
     internal class Manager
     {
+        List<Hospital> hospitales = new List<Hospital>();
+
         public void Iniciar()
         {
+            hospitales.Add(new Hospital("Hospital 1", "Barcelona"));
+
             // Mostrar menu con opciones
             int opc = 0;
 
