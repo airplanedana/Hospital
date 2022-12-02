@@ -21,7 +21,7 @@ namespace Hospital
                 // Mostrar menu con opciones
                 int opc = 0;
 
-                while (opc != 1 && opc != 2 && opc != 3 && opc != 4 && opc != 5)
+                while (opc != 1 && opc != 2 && opc != 3 && opc != 4 && opc != 5 && opc != 6)
                 {
                     Console.WriteLine();
                     Console.WriteLine("Bienvenido. Que le gustaria hacer? ");
@@ -29,7 +29,8 @@ namespace Hospital
                     Console.WriteLine("2. Dar el alta a un paciente existente.");
                     Console.WriteLine("3. Realizar una prueba a un paciente.");
                     Console.WriteLine("4. Asignar medicación a un paciente.");
-                    Console.WriteLine("5. Salir");
+                    Console.WriteLine("5. Notificar muerte.");
+                    Console.WriteLine("6. Salir");
 
                     opc = Convert.ToInt32(Console.ReadLine());
                 }
@@ -55,7 +56,7 @@ namespace Hospital
                                 paciente.RecibirDiagnostico(diagnostico);
                                 paciente.RecibirPronostico(pronostico);
 
-                                Console.WriteLine("Diagnostico y pronostico correctos");
+                                Console.WriteLine("Diagnostico y pronostico recibidos");
                             }
                             break;
 
@@ -70,9 +71,16 @@ namespace Hospital
                             break;
 
                         case 4:
+                            AsignarMedicacion(ObtenerPaciente());
+                            Console.WriteLine("Medicacion asignada correctamente");
                             break;
 
                         case 5:
+                            NotificarMuerte(ObtenerPaciente());
+                            Console.WriteLine("Muerte notificada correctamente");
+                            break;
+
+                        case 6:
                             repetir = false;
                             break;
 
@@ -137,12 +145,42 @@ namespace Hospital
 
         private void RealizarPrueba(Paciente paciente)
         {
-            string prueba;
+            if (paciente != null)
+            {
+                string prueba;
 
-            Console.WriteLine("Indique que prueba realizar: ");
-            prueba = Console.ReadLine();
+                Console.WriteLine("Indique que prueba realizar: ");
+                prueba = Console.ReadLine();
 
-            paciente.RecibirPrueba(prueba);
+                paciente.RecibirPrueba(prueba);
+            }
+            else
+                throw new Exception("Paciente no encontrado.");
+        }
+
+        private void AsignarMedicacion(Paciente paciente)
+        {
+            if (paciente != null)
+            {
+                string medicacion;
+
+                Console.WriteLine("Indique que medicacion asignar: ");
+                medicacion = Console.ReadLine();
+
+                paciente.RecibirMedicacion(medicacion);
+            }
+            else
+                throw new Exception("Paciente no encontrado.");
+        }
+
+        private void NotificarMuerte(Paciente paciente)
+        {
+            if (paciente != null)
+            {
+                
+            }
+            else
+                throw new Exception("Paciente no encontrado.");
         }
     }
 }

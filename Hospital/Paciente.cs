@@ -49,5 +49,13 @@ namespace Hospital
         {
             this.pruebas.Add(prueba);
         }
+
+        public void RecibirMedicacion(string medicacion)
+        {
+            if (!this.medicaciones.Contains(medicacion))
+                this.medicaciones.Add(medicacion);
+            else
+                throw new Exception("Esta medicacion ya esta asignada.");
+        }
     }
 }
