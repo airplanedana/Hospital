@@ -10,6 +10,10 @@ namespace Hospital
     {
         List<Hospital> hospitales = new List<Hospital>();
 
+        /* TODO: crear diccionarios de medicamentos, pruebas
+         * TODO: notificar muerte y borrar paciente muerto
+         */
+
         public void Iniciar()
         {
             hospitales.Add(new Hospital("Hospital 1", "Barcelona"));
