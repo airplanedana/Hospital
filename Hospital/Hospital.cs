@@ -32,14 +32,19 @@ namespace Hospital
         public void SetPacientes(List<Paciente> pacientes) { this.pacientes = pacientes; }
 
 
-        public void IngresarPaciente(Persona persona)
+        public Paciente IngresarPaciente(Persona persona, int diasIngreso)
         {
+            Paciente paciente = null;
+
             if (this.camasDisponibles > 0)
             {
                 // Creamos nuevo paciente en la lista y ocupamos una cama
-                this.pacientes.Add(new Paciente(persona.GetDni(), persona.GetNombre(), persona.GetEdad(), persona.GetDireccion()));
+                paciente = new Paciente(persona.GetDni(), persona.GetNombre(), persona.GetEdad(), persona.GetDireccion(), diasIngreso);
+                this.pacientes.Add(paciente);
                 this.camasDisponibles--;
                 this.camasOcupadas++;
+
+                return paciente;
             }
             else
                 throw new Exception("No hay camas disponibles");

@@ -38,8 +38,25 @@ namespace Hospital
                     switch (opc)
                     {
                         case 1:
-                            hospitales[0].IngresarPaciente(CrearPersona());
+                            Console.WriteLine("Cuantos dias será ingresado? ");
+                            int dias = Convert.ToInt32(Console.ReadLine());
+
+                            Paciente paciente = hospitales[0].IngresarPaciente(CrearPersona(), dias);
                             Console.WriteLine("Paciente ingresado correctamente");
+
+                            if (paciente != null)
+                            {
+                                Console.WriteLine("Indique el diagnostico: ");
+                                string diagnostico = Console.ReadLine();
+
+                                Console.WriteLine("Indique el pronostico: (G/M/L - grave/medio/leve)");
+                                char pronostico = Convert.ToChar(Console.ReadLine());
+
+                                paciente.RecibirDiagnostico(diagnostico);
+                                paciente.RecibirPronostico(pronostico);
+
+                                Console.WriteLine("Diagnostico y pronostico correctos");
+                            }
                             break;
 
                         case 2:
@@ -67,6 +84,16 @@ namespace Hospital
                 }
 
                 Console.WriteLine();
+                Console.WriteLine("Pacientes ingresados actualmente: ");
+                foreach (Paciente paciente in hospitales[0].GetPacientes())
+                {
+                    Console.WriteLine(paciente.GetDni() + " - " + paciente.GetNombre());
+                    foreach (string diagnostico in paciente.GetDiagnosticos())
+                    {
+                        Console.Write(diagnostico + "\t");
+                    }
+                    Console.WriteLine();
+                }
             }
         }
 

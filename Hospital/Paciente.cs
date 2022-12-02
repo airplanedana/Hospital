@@ -12,9 +12,9 @@ namespace Hospital
         private List<string> medicaciones;
         private List<string> pruebas;
 
-        public Paciente(string dni, string nombre, int edad, string direccion) : base(dni, nombre, edad, direccion)
+        public Paciente(string dni, string nombre, int edad, string direccion, int diasIngresado) : base(dni, nombre, edad, direccion)
         {
-            this.diasIngresado = 1;
+            this.diasIngresado = diasIngresado;
             this.diagnosticos = new List<string>();
             this.pronosticos = new List<char>();
             this.medicaciones = new List<string>();
@@ -32,6 +32,17 @@ namespace Hospital
         public void SetMedicaciones(List<string> medicaciones) { this.medicaciones = medicaciones; }
         public void SetPruebas(List<string> pruebas) { this.pruebas = pruebas; }
 
+        public void RecibirDiagnostico(string diagnostico)
+        {
+            if (!this.diagnosticos.Contains(diagnostico))
+                this.diagnosticos.Add(diagnostico);
+            else
+                throw new Exception("Este diagnostica ya se ha recibido.");
+        }
 
+        public void RecibirPronostico(char pronostico)
+        {
+            this.pronosticos.Add(pronostico);
+        }
     }
 }
