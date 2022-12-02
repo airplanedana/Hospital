@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hospital
 {
@@ -16,7 +14,7 @@ namespace Hospital
 
         public Paciente(string dni, string nombre, int edad, string direccion) : base(dni, nombre, edad, direccion)
         {
-            this.diasIngresado = 0;
+            this.diasIngresado = 1;
             this.diagnosticos = new List<string>();
             this.pronosticos = new List<char>();
             this.medicaciones = new List<string>();
