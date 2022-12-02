@@ -44,5 +44,10 @@ namespace Hospital
         {
             this.pronosticos.Add(pronostico);
         }
+
+        public void RecibirPrueba(string prueba)
+        {
+            this.pruebas.Add(prueba);
+        }
     }
 }

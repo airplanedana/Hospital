@@ -65,6 +65,8 @@ namespace Hospital
                             break;
 
                         case 3:
+                            RealizarPrueba(ObtenerPaciente());
+                            Console.WriteLine("Prueba realizada correctamente");
                             break;
 
                         case 4:
@@ -131,6 +133,16 @@ namespace Hospital
             }
 
             return null;
+        }
+
+        private void RealizarPrueba(Paciente paciente)
+        {
+            string prueba;
+
+            Console.WriteLine("Indique que prueba realizar: ");
+            prueba = Console.ReadLine();
+
+            paciente.RecibirPrueba(prueba);
         }
     }
 }
