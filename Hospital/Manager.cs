@@ -9,11 +9,6 @@ namespace Hospital
         List<Hospital> hospitales = new List<Hospital>();
 
         /* TODO: crear diccionario de pruebas
-         *  
-         * Cuando haya muerte, el paciente va a la morgue y recibira un codigo
-         * Y el objecto paciente pasa a llamarse cuerpo (???????)
-         * 
-         * TODO: notificar muerte y borrar paciente muerto
          */
 
         public void Iniciar()
