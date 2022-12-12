@@ -67,12 +67,10 @@ namespace Hospital
                 throw new Exception("Este paciente no esta ingresado.");
         }
 
-        public Cuerpo IngresarCuerpo(Paciente paciente, string codigo, string fecha)
+        public Cuerpo IngresarCuerpo(Paciente paciente, string fecha)
         {
-            Cuerpo cuerpo = null;
-
             // Creamos nuevo cuerpo en la lista
-            cuerpo = new Cuerpo(codigo, paciente.GetNombre(), fecha);
+            Cuerpo cuerpo = new Cuerpo(paciente.GetDni(), paciente.GetNombre(), fecha);
             this.morgue.Add(cuerpo);
 
             this.pacientes.Remove(paciente);

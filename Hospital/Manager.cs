@@ -8,7 +8,8 @@ namespace Hospital
     {
         List<Hospital> hospitales = new List<Hospital>();
 
-        /* TODO: crear diccionario de pruebas
+        /* 
+         * TODO: crear diccionario de pruebas
          */
 
         public void Iniciar()
@@ -153,6 +154,8 @@ namespace Hospital
                 Console.WriteLine("Indique que prueba realizar: ");
                 prueba = Console.ReadLine();
 
+                // Añadir prueba a diccionario
+
                 paciente.RecibirPrueba(prueba);
             }
             else
@@ -196,15 +199,12 @@ namespace Hospital
         {
             if (paciente != null)
             {
-                string codigo = "";
                 string fecha = "";
 
-                Console.WriteLine("Ingrese codigo del cuerpo: ");
-                codigo = Console.ReadLine();
                 Console.WriteLine("Ingrese la fecha de muerte: ");
                 fecha = Console.ReadLine();
                 
-                hospitales[0].IngresarCuerpo(paciente, codigo, fecha);
+                hospitales[0].IngresarCuerpo(paciente, fecha);
 
             }
             else

@@ -18,5 +18,12 @@ namespace Hospital
             this.nombre = nombre;
             this.fecha = fecha;
         }
+
+        public string GetCodigo() { return this.codigo; }
+        public string GetNombre() { return this.nombre; }
+        public string GetFecha() { return this.fecha; }
+        public void SetCodigo(string codigo) { this.codigo = codigo; }
+        public void SetNombre(string nombre) { this.nombre = nombre; }
+        public void SetFecha(string fecha) { this.fecha = fecha; }
     }
 }
