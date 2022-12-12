@@ -23,8 +23,9 @@ namespace Hospital
             this.precio = 0;
         }
 
-        public Medicamento(string nombre, string indicaciones, string efectosSecundarios, string dosis, string efectosAdversos, double precio) : this(nombre)
+        public Medicamento(string nombre, string indicaciones, string efectosSecundarios, string dosis, string efectosAdversos, double precio)
         {
+            this.nombre = nombre;
             this.indicaciones = indicaciones;
             this.efectosSecundarios = efectosSecundarios;
             this.dosis = dosis;

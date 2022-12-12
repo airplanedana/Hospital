@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hospital
 {
@@ -165,15 +163,33 @@ namespace Hospital
             else
                 throw new Exception("Paciente no encontrado.");
         }
+        private Medicamento CrearMedicamento()
+        {
+            string nombre, indicaciones, efectosSecundarios, dosis, efectosAdversos;
+            double precio;
+
+            Console.WriteLine("Por favor, introduzca los datos del Medicamento a asignar: ");
+            Console.WriteLine("Nombre: ");
+            nombre = Console.ReadLine();
+            Console.WriteLine("Indicaciones: ");
+            indicaciones = Console.ReadLine();
+            Console.WriteLine("Efectos secundarios: ");
+            efectosSecundarios = Console.ReadLine();
+            Console.WriteLine("Dosis: ");
+            dosis = Console.ReadLine();
+            Console.WriteLine("Efectos adversos: ");
+            efectosAdversos = Console.ReadLine();
+            Console.WriteLine("Precio: ");
+            precio = Convert.ToDouble(Console.ReadLine());
+
+            return new Medicamento(nombre, indicaciones, efectosSecundarios, dosis, efectosAdversos, precio);
+        }
 
         private void AsignarMedicacion(Paciente paciente)
         {
             if (paciente != null)
             {
-                string medicacion;
-
-                Console.WriteLine("Indique que medicacion asignar: ");
-                medicacion = Console.ReadLine();
+                Medicamento medicacion = CrearMedicamento();
 
                 paciente.RecibirMedicacion(medicacion);
             }
