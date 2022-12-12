@@ -201,7 +201,16 @@ namespace Hospital
         {
             if (paciente != null)
             {
+                string codigo = "";
+                string fecha = "";
+
+                Console.WriteLine("Ingrese codigo del cuerpo: ");
+                codigo = Console.ReadLine();
+                Console.WriteLine("Ingrese la fecha de muerte: ");
+                fecha = Console.ReadLine();
                 
+                hospitales[0].IngresarCuerpo(paciente, codigo, fecha);
+
             }
             else
                 throw new Exception("Paciente no encontrado.");

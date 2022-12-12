@@ -10,6 +10,7 @@ namespace Hospital
         private int camasDisponibles;
         private int camasOcupadas;
         private List<Paciente> pacientes;
+        private List<Cuerpo> morgue;
 
         public Hospital(string nombre, string ubicacion)
         {
@@ -18,6 +19,7 @@ namespace Hospital
             this.camasDisponibles = 20;
             this.camasOcupadas = 0;
             this.pacientes = new List<Paciente>();
+            this.morgue = new List<Cuerpo>();
         }
 
         public string GetNombre() { return this.nombre; }
@@ -30,6 +32,8 @@ namespace Hospital
         public void SetCamasOcupadas(int camasOcupadas) { this.camasOcupadas = camasOcupadas; }
         public List<Paciente> GetPacientes() { return this.pacientes; }
         public void SetPacientes(List<Paciente> pacientes) { this.pacientes = pacientes; }
+        public List<Cuerpo> GetMorgue() { return this.morgue; }
+        public void SetMorgue(List<Cuerpo> morgue) { this.morgue = morgue; }
 
 
         public Paciente IngresarPaciente(Persona persona, int diasIngreso)
@@ -61,6 +65,21 @@ namespace Hospital
             }
             else
                 throw new Exception("Este paciente no esta ingresado.");
+        }
+
+        public Cuerpo IngresarCuerpo(Paciente paciente, string codigo, string fecha)
+        {
+            Cuerpo cuerpo = null;
+
+            // Creamos nuevo cuerpo en la lista
+            cuerpo = new Cuerpo(codigo, paciente.GetNombre(), fecha);
+            this.morgue.Add(cuerpo);
+
+            this.pacientes.Remove(paciente);
+            this.camasDisponibles++;
+            this.camasOcupadas--;
+
+            return cuerpo;
         }
     }
 }
