@@ -7,14 +7,14 @@ namespace Hospital
     internal class Manager
     {
         List<Hospital> hospitales = new List<Hospital>();
-
-        /* 
-         * TODO: crear diccionario de pruebas
-         */
+        Dictionary<int, string> pruebasDic = new Dictionary<int, string>();
 
         public void Iniciar()
         {
             hospitales.Add(new Hospital("Hospital 1", "Barcelona"));
+
+            pruebasDic.Add(1, "Analisis");
+            pruebasDic.Add(2, "Electrocardiograma");
 
             bool repetir = true;
 
@@ -149,12 +149,24 @@ namespace Hospital
         {
             if (paciente != null)
             {
+                int opt;
                 string prueba;
 
                 Console.WriteLine("Indique que prueba realizar: ");
-                prueba = Console.ReadLine();
+                // Mostramos las pruebas disponibles
+                foreach (var item in pruebasDic)
+                {
+                    Console.WriteLine(item.Key + " - " + item.Value);
+                }
 
-                // Añadir prueba a diccionario
+                opt = Convert.ToInt32(Console.ReadLine());
+
+                // Usar Linq para la busqueda
+                var searchPrueba = pruebasDic.Where(prueba => prueba.Key == opt);
+                if (searchPrueba.Count() <= 0)
+                    throw new Exception("No se ha encontrado esta prueba.");
+
+                prueba = searchPrueba.First().Value;
 
                 paciente.RecibirPrueba(prueba);
             }
@@ -199,10 +211,8 @@ namespace Hospital
         {
             if (paciente != null)
             {
-                string fecha = "";
-
                 Console.WriteLine("Ingrese la fecha de muerte: ");
-                fecha = Console.ReadLine();
+                string fecha = Console.ReadLine();
                 
                 hospitales[0].IngresarCuerpo(paciente, fecha);
 
