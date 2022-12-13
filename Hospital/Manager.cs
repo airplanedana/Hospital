@@ -229,7 +229,7 @@ namespace Hospital
                     dia = Convert.ToInt32(Console.ReadLine());
                 }
 
-                Fecha fecha = new Fecha(año, mes, dia);
+                DateTime fecha = new DateTime(año, mes, dia);
                 Console.WriteLine("Muerte registrada en: " + fecha + "\n");
 
                 hospitales[0].IngresarCuerpo(paciente, fecha);

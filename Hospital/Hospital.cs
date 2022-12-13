@@ -67,7 +67,7 @@ namespace Hospital
                 throw new Exception("Este paciente no esta ingresado.");
         }
 
-        public Cuerpo IngresarCuerpo(Paciente paciente, Fecha fecha)
+        public Cuerpo IngresarCuerpo(Paciente paciente, DateTime fecha)
         {
             // Creamos nuevo cuerpo en la lista
             Cuerpo cuerpo = new Cuerpo(paciente.GetDni(), paciente.GetNombre(), fecha);

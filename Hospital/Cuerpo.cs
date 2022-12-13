@@ -10,9 +10,9 @@ namespace Hospital
     {
         private string codigo;
         private string nombre;
-        private Fecha fecha;
+        private DateTime fecha;
 
-        public Cuerpo(string codigo, string nombre, Fecha fecha)
+        public Cuerpo(string codigo, string nombre, DateTime fecha)
         {
             this.codigo = codigo;
             this.nombre = nombre;
@@ -21,9 +21,9 @@ namespace Hospital
 
         public string GetCodigo() { return this.codigo; }
         public string GetNombre() { return this.nombre; }
-        public Fecha GetFecha() { return this.fecha; }
+        public DateTime GetFecha() { return this.fecha; }
         public void SetCodigo(string codigo) { this.codigo = codigo; }
         public void SetNombre(string nombre) { this.nombre = nombre; }
-        public void SetFecha(Fecha fecha) { this.fecha = fecha; }
+        public void SetFecha(DateTime fecha) { this.fecha = fecha; }
     }
 }
