@@ -211,9 +211,27 @@ namespace Hospital
         {
             if (paciente != null)
             {
-                Console.WriteLine("Ingrese la fecha de muerte: ");
-                string fecha = Console.ReadLine();
-                
+                int año = 0, mes = 0, dia = 0;
+
+                while (año < 1500 || año > DateTime.Now.Year)
+                {
+                    Console.WriteLine("Ingrese el año de muerte: ");
+                    año = Convert.ToInt32(Console.ReadLine());
+                }
+                while (mes < 1 || mes > 12)
+                {
+                    Console.WriteLine("Ingrese el mes de muerte: ");
+                    mes = Convert.ToInt32(Console.ReadLine());
+                }
+                while (dia < 1 || dia > 31)
+                {
+                    Console.WriteLine("Ingrese el dia de muerte: ");
+                    dia = Convert.ToInt32(Console.ReadLine());
+                }
+
+                Fecha fecha = new Fecha(año, mes, dia);
+                Console.WriteLine("Muerte registrada en: " + fecha + "\n");
+
                 hospitales[0].IngresarCuerpo(paciente, fecha);
 
             }
