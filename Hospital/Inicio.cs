@@ -12,15 +12,21 @@ namespace Hospital
             Manager manager = new Manager();
             Connection conexion = new Connection();
 
-            manager.Iniciar(conexion);
+            //manager.Iniciar(conexion);
+            conexion.Start();
+
 
             conexion.HacerNonQuery("INSERT INTO hospital VALUES (1, 'Dana', 'Hola', 20, 0)");
-            conexion.HacerQuery("SELECT * FROM hospital");
+            /*conexion.HacerQuery("SELECT * FROM hospital");
 
             conexion.HacerNonQuery("UPDATE hospital SET nombre = 'Dana Changed' WHERE id = 1");
-            conexion.HacerQuery("SELECT * FROM hospital");
+            conexion.HacerQuery("SELECT * FROM hospital");*/
+
+            conexion.UsarDataTable("SELECT * FROM hospital");
 
             conexion.HacerNonQuery("DELETE FROM hospital WHERE id = 1");
+
+            conexion.MasDataTable();
         }
     }
 }
