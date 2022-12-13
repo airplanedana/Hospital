@@ -9,8 +9,10 @@ namespace Hospital
         List<Hospital> hospitales = new List<Hospital>();
         Dictionary<int, string> pruebasDic = new Dictionary<int, string>();
 
-        public void Iniciar()
+        public void Iniciar(Connection conexion)
         {
+            conexion.Start(); // Iniciamos la conexion
+
             hospitales.Add(new Hospital("Hospital 1", "Barcelona"));
 
             pruebasDic.Add(1, "Analisis");

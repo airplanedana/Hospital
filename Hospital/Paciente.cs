@@ -37,7 +37,7 @@ namespace Hospital
             if (!this.diagnosticos.Contains(diagnostico))
                 this.diagnosticos.Add(diagnostico);
             else
-                throw new Exception("Este diagnostica ya se ha recibido.");
+                throw new Exception("Este diagnostico ya se ha recibido.");
         }
 
         public void RecibirPronostico(char pronostico)
